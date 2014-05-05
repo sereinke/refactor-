@@ -1,0 +1,23 @@
+package lab;
+
+
+/**Responsável por cria o simbolo dentro da classe elemento
+ * @author maricleia.vieira
+ * @version 1.0
+ */
+public class Armadilha extends Elemento {
+	public static final String CARACTER  = "T";
+	
+	public Armadilha(Posicao posicao) {
+		super(posicao);
+	}
+	
+	public Armadilha() {
+		
+	}
+
+	@Override
+	public String getValue() {
+		return CARACTER;
+	}
+}
