@@ -1,0 +1,25 @@
+package lab;
+
+/**
+ * class Parede
+ * Carrega o caracter e extend a classe elemento
+ * @author maricleia.vieira
+ * @version 1.0
+ */
+public class Parede extends Elemento{
+	public static final String CARACTER  = "#";
+	
+	public Parede() {
+		
+	}
+	
+	public Parede(Posicao posicao) {
+		super(posicao);
+	}
+	
+
+	@Override
+	public String getValue() {
+		return CARACTER;
+	}
+}
