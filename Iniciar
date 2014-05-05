@@ -1,0 +1,31 @@
+package lab;
+
+
+/**
+ * class Iniciar
+ * Responsável por carregar o labirinto funcionando
+ * @author maricleia.vieira
+ * @version 1.0
+ */
+public class Iniciar {
+
+	public static void main(String args[]) {
+		
+		CarregarLabirinto carregar = new CarregarLabirinto();
+		Labirinto lab = null;
+		lab = carregar.lerDoDisco();
+		System.out.println(lab);
+
+		try {
+			Rato rato = new Rato();
+			rato.setLab(lab);
+			do {
+				rato.andar();
+			} while(! rato.achouSaida());
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+}
