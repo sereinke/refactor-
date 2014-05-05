@@ -1,0 +1,14 @@
+package lab;
+
+/**
+ *  IElemento
+ * Responsável por referencia qualquer objto da classe que implemeta ela.
+ * @author maricleia.vieira
+ * @version 1.0
+ */
+public interface IElemento {
+	
+	public String getValue();
+	
+	
+}
