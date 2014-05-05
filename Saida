@@ -1,0 +1,22 @@
+package lab;
+/**
+ * class Saida
+ * Carrega o caracter e extend a classe elemento
+ * @author maricleia.vieira
+ * @version 1.0
+ */
+public class Saida extends Elemento{
+	public static final String CARACTER  = "E";
+	
+	public Saida() {
+		
+	}
+	public Saida(Posicao posicao) {
+		super(posicao);
+	}
+	
+	@Override
+	public String getValue() {
+		return CARACTER;
+	}
+}
