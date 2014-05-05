@@ -1,0 +1,161 @@
+package lab;
+
+import java.util.LinkedList;
+
+/**
+ * class Labirinto
+ * Carrega o labirinto intancia do metodo labirinto  e carrega o labirinto dentro de duas listas.
+ * possuiu atributos e geters/seters.
+ * @author maricleia.vieira
+ * @version 1.0
+ */
+public class Labirinto {
+
+	private static Labirinto instance = new Labirinto();
+	private LinkedList<LinkedList<Posicao>> labirinto = new LinkedList<LinkedList<Posicao>>();
+
+	private Rato rato;
+	private int numeroDeLinhas;
+	private int numeroDeColunas;
+	private int ratoLinha;
+	private int ratoColuna;
+	private int colunaAnterior;
+	private int linhaAnterior;
+
+	public Labirinto() {
+		this.linhaAnterior = -1;
+		this.colunaAnterior = -1;
+	}
+
+	public Posicao getPosicao(int linha, int colula){
+		return labirinto.get(linha).get(colula);
+	}
+	
+	public int getColunaAnterior() {
+		return colunaAnterior;
+	}
+
+	public void setColunaAnterior(int colunaAnterior) {
+		this.colunaAnterior = colunaAnterior;
+	}
+
+	public int getLinhaAnterior() {
+		return linhaAnterior;
+	}
+
+	public void setLinhaAnterior(int linhaAnterior) {
+		this.linhaAnterior = linhaAnterior;
+	}
+
+	public Rato getRato() {
+		return rato;
+	}
+
+	public void setRato(Rato rato) {
+		this.rato = rato;
+	}
+
+	public int getRatoLinha() {
+		return ratoLinha;
+	}
+
+	public void setRatoLinha(int ratoLinha) {
+		this.ratoLinha = ratoLinha;
+	}
+
+	public int getRatoColuna() {
+		return ratoColuna;
+	}
+
+	public void setRatoColuna(int ratoColuna) {
+		this.ratoColuna = ratoColuna;
+	}
+
+	
+	public static Labirinto getInstance() {
+
+		return instance;
+	}
+
+	public int getNumeroDeLinhas() {
+
+		return numeroDeLinhas;
+	}
+
+	public void setNumeroDeLinhas(int numeroDeLinhas) {
+		this.numeroDeLinhas = numeroDeLinhas;
+	}
+
+	public int getNumeroDeColunas() {
+		return numeroDeColunas;
+	}
+
+	public void setNumeroDeColunas(int numeroDeColunas) {
+		this.numeroDeColunas = numeroDeColunas;
+	}
+
+	/**
+	 * class toString()
+	 * Carrega o arquivo e imprime a posiçao na linha, o caracter e a coluna.
+	 * @author maricleia.vieira
+	 * @version 1.0
+	 */
+
+	public String toString() {
+		int linhaAtual = 0;
+		this.sleep(1000);
+		StringBuffer linhas = new StringBuffer();
+
+		linhas.append("\n");
+
+		for (LinkedList<Posicao> linha : labirinto) {
+			int colunaAtual = 0;
+			for (Posicao posicaolinha : linha) {
+				try {
+					String caracter = posicaolinha.getCaracter();
+			
+					if (this.ratoLinha == linhaAtual
+							&& this.ratoColuna == colunaAtual) {
+						caracter = Rato.CARACTER;
+						
+					}
+					linhas.append(caracter);
+				} catch (Exception e) {
+					linhas.append("[LABIRINTO] erro impressao");
+
+				}
+				colunaAtual++;
+			}
+			linhas.append("\n");
+			linhaAtual++;
+
+		}
+		return linhas.toString();
+
+	}
+	/**
+	 * add()
+	 * Adiciona o elemento dentro da lista na posiçao correta.
+	 * @author maricleia.vieira
+	 * @version 1.0
+	 */
+	public void add(LinkedList<Posicao> listaElemento) {
+		labirinto.add(listaElemento);
+
+	}
+
+	/**
+	 * void sleep
+	 * Metodo utilizado para fazer o rato caminhar em milimitros.
+	 * @author maricleia.vieira
+	 * @version 1.0
+	 */
+	public static void sleep(int m) {
+		try {
+			Thread.sleep(m);
+		} catch (InterruptedException ex) {
+			Thread.currentThread().interrupt();
+		}
+	}
+
+}
