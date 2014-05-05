@@ -1,0 +1,70 @@
+package lab;
+
+import java.util.HashMap;
+
+/**
+ * class Elemento Responsavel para receber os elementos do labirinto e implentar
+ * em uma interface
+ * 
+ * @author maricleia.vieira
+ * @version 1.0
+ */
+public class Elemento implements IElemento {
+	private Posicao posicao;
+
+	public Elemento() {
+
+	}
+
+	public Elemento(Posicao p) {
+		this.posicao = p;
+	}
+
+	public Posicao getPosicao() {
+		return posicao;
+	}
+
+	public void setPosicao(Posicao posicao) {
+		this.posicao = posicao;
+	}
+
+	public String getValue() {
+		return "";
+	}
+
+	private static Elemento getElemento(String elemento) {		
+		
+		HashMap<String, Elemento> elementos = new HashMap<String, Elemento>();
+
+		elementos.put(Armadilha.CARACTER, new Armadilha());
+		elementos.put(Queijo.CARACTER, new Queijo());
+		elementos.put(Parede.CARACTER, new Parede());
+		elementos.put(Saida.CARACTER, new Saida());
+		elementos.put(Vazio.CARACTER, new Vazio());
+		elementos.put(Rato.CARACTER, new Rato());
+		elementos.put(RatoVermelho.CARACTER, new RatoVermelho());
+		return elementos.get(elemento);
+	}
+
+	/**
+	 * metodo criarElemento 
+	 * Responsavel por verificar a posiçao do rato e qual é o elemento(simbolo) no labirinto.
+	 * @author maricleia.vieira
+	 * @version 1.0
+	 */
+	public static Elemento criarElemento(Posicao p, String elemento) {
+		Elemento item = getElemento(elemento);
+		item.setPosicao(p);
+		return item;
+	}
+
+	/**
+	 * String toString 
+	 * Responsavel por imprimir o labirinto com a posição nova 
+	 * @author maricleia.vieira
+	 * @version 1.0
+	 */
+	public String toString() {
+		return this.getValue();
+	}
+}
