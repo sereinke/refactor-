@@ -1,0 +1,24 @@
+package lab;
+/**
+ * class RatoVermelho
+ * Carrega o caracter e extend a classe elemento
+ * @author maricleia.vieira
+ * @version 1.0
+ */
+public class RatoVermelho extends Elemento{
+	public static final String CARACTER  = "R";
+	
+	public RatoVermelho() {
+		
+	}
+	
+	public RatoVermelho(Posicao posicao) {
+		super(posicao);
+	}
+	
+	@Override    
+	public String getValue() {
+		return CARACTER;
+	}
+}
+
