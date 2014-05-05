@@ -1,0 +1,70 @@
+package lab;
+/**
+ * class Posiçao
+ * Verifica a posição da linha e da coluna
+ * @author maricleia.vieira
+ * @version 1.0
+ */
+public class Posicao {
+	// linha e coluna
+	private int x;
+	private int y;
+	private Elemento elemento;
+
+	public Elemento getElemento() {
+		return elemento;
+	}
+
+	public void setElemento(Elemento elemento) {
+		this.elemento = elemento;
+	}
+
+	public String getCaracter() {
+		return elemento.getValue();
+	}
+	/**
+	 * caminhavel()
+	 * Verifica se o caracter ´[e vazio ou é a Saida.
+	 * @author maricleia.vieira
+	 * @version 1.0
+	 */
+
+	public boolean caminhavel() {
+		return (getCaracter() == "." || getCaracter() == "C" || getCaracter() == "E");
+	}
+
+	Posicao(int x, int y) {
+
+		this.x = x;
+		this.y = y;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+	/**
+	 * criarPosicao()
+	 * Cria uma nova posição guarda no elemento a nova posição.
+	 * @author maricleia.vieira
+	 * @version 1.0
+	 */
+	public static Posicao criarPosicao(int x2, int y2, String caracter) {
+		Posicao novaPosicao = new Posicao(x2, y2);
+		Elemento novoElemento = Elemento.criarElemento(novaPosicao, caracter);
+		novaPosicao.setElemento(novoElemento);
+		return novaPosicao;
+	}
+
+}
