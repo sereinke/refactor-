@@ -1,0 +1,23 @@
+package lab;
+/**
+ * class Queijo 
+ * Carrega o caracter e extend a classe elemento
+ * @author maricleia.vieira
+ * @version 1.0
+ */
+public class Queijo extends Elemento{
+	
+	public static final String CARACTER  = "C";
+	public Queijo(Posicao posicao) {
+		super(posicao);
+	}
+	
+	public Queijo() {
+		
+	}
+	
+	@Override
+	public  String getValue() {
+		return CARACTER;
+	}
+}
